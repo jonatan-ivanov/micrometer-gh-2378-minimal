@@ -13,3 +13,5 @@ You can observe the issue in two ways:
 
 When the original issue happens, the client is trapped into an infinite retry loop, where the `Throwable` is the following: `reactor.core.Exceptions$OverflowException: Backpressure overflow during Sinks.Many#emitNext`.
 This project is visualizing the `Throwable` in the retry loop instead of the connection logs.
+
+`BufferingFlux` definitely has some role in reproducing the issue, if you change the `Publisher<String>` from `BufferingFlux` to `this.manySink.asFlux()` (see the comment), the issue seems to be gone.

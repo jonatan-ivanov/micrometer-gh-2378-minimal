@@ -57,7 +57,7 @@ public class UdpSample {
 					1400,
 					Duration.ofSeconds(10).toMillis()
 			).onBackpressureLatest();
-//			publisher = this.manySink.asFlux();
+//			Publisher<String> publisher = this.manySink.asFlux();
 			prepareUdpClient(publisher);
 		}
 	}
